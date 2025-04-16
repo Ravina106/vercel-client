@@ -12,6 +12,7 @@ const Add = () => {
     email: "",
     password: ""
   });
+  
 
   const navigate = useNavigate();
 
