@@ -21,7 +21,7 @@ const Edit = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/getone/${id}`)
+    axios.get( `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/getone/${id}`)
       .then((response) => {
         setUser(response.data);
       })
@@ -34,7 +34,7 @@ const Edit = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:8000/api/update/${id}`, user);
+      const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/update/${id}`, user);
       toast.success(response.data.msg, { position: "top-right" });
       navigate("/");
     } catch (error) {

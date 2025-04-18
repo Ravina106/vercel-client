@@ -10,7 +10,7 @@ const User = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/getall");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/getall`);
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -22,7 +22,7 @@ const User = () => {
 
   const deleteUser = async (userId) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/api/delete/${userId}`);
+      const response = await axios.delete(` ${process.env.NEXT_PUBLIC_BACKEND_URL}/api/delete/${userId}`);
       setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
       toast.success(response.data.msg, { position: "top-right" });
     } catch (error) {

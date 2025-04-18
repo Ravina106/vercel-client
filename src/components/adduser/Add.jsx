@@ -24,7 +24,7 @@ const Add = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/api/create", user);
+      await axios.post( `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/create`, user);
       toast.success("User added successfully!", { position: "top-right" });
       navigate("/");
     } catch (error) {
