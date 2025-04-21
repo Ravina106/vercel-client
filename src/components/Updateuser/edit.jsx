@@ -21,7 +21,7 @@ const Edit = () => {
   };
 
   useEffect(() => {
-    axios.get( `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/getone/${id}`)
+    axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/getone/${id}`)
       .then((response) => {
         setUser(response.data);
       })
